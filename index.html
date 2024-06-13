@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>To-do List</h1>
+
+        <input type="text" name="title" id="input-title" placeholder="Enter title of today's activity" required>
+        <textarea name="description" id="description" placeholder="Describe activity...(optional)"></textarea>
+        <input type="datetime-local" id="due-date" required>
+
+        <button id="add-btn">Add to List</button>
+
+
+        <div class="sort-btn">
+            <button id="sort-asc-btn">Sort(Asc)</button>
+            <button id="sort-desc-btn">Sort(Dsc)</button>
+        </div>
+    </div>
+    <ul id="todo-list">
+        <!-- dynamically adds list using js-->
+    </ul>
+
+
+    <div class="edit-modal hidden">
+        <div class="close-modal-btn-container">
+            <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+        </div>
+        <h1>Edit Content</h1>
+        <input type="text" name="title" id="edit-title" placeholder="Enter title of today's activity" required>
+
+        <textarea name="description" id="edit-description" placeholder="Describe activity..."></textarea>
+        <input type="datetime-local" id="edit-due-date" required>
+
+        <button id="update-btn">Update</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  color: black;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+p,
+input {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 700px;
+  height: auto;
+  margin: 3.125em auto 0;
+  padding: 20px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+textarea,
+#add-btn {
+  margin: 0.5em 0;
+  width: 65%;
+  font-size: 1.125rem;
+  padding: 0.5em;
+  border-radius: 4px;
+  border: 1px solid #d3d3d3;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+#todo-list {
+  max-width: 740px;
+  height: auto;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+ul {
+  list-style: none;
+  padding: 0;
+  gap: 10px;
+}
+
+li {
+  padding: 5px;
+  margin: 10px 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 80%;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.edit-modal {
+  position: fixed;
+  width: 50%;
+  max-width: 500px;
+  height: auto;
+  top: 200px;
+  left: 25%;
+  margin: auto;
+  border-radius: 3px;
+  background-color: #fff;
+  border: none;
+  box-shadow: 5px 5px 255px 0px #00000080;
+}
+
+.close-modal-btn-container {
+  text-align: right;
+  margin: 9px;
+}
+
+.modal-close-btn {
+  font-size: 22px;
+  font-weight: bold;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: black;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:active {
+  color: red;
+  cursor: pointer;
+}
+
+.mark-complete {
+  /* position: absolute; */
+  padding: 0;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.completed {
+  background-color: greenyellow;
+}
+
+button {
+  color: #fff;
+  background-color: #0077b6;
+  border-radius: 4px;
+  padding: 0.3em;
+  margin: 5px;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00b4d7;
+}
