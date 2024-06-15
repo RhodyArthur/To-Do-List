@@ -20,10 +20,11 @@ input {
   height: auto;
   margin: 3.125em auto 0;
   padding: 20px;
-  background-color: aliceblue;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 input,
@@ -35,6 +36,10 @@ textarea,
   padding: 0.5em;
   border-radius: 4px;
   border: 1px solid #d3d3d3;
+}
+
+#add-btn {
+  padding: 0.5 1em;
 }
 
 button:hover {
@@ -49,7 +54,7 @@ textarea {
   max-width: 740px;
   height: auto;
   margin: 0 auto;
-  background-color: #f8f9fa;
+  background-color: aliceblue;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,7 +77,7 @@ li {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  width: 80%;
+  width: 90%;
 }
 
 .button-container {
@@ -95,7 +100,7 @@ li {
   width: 50%;
   max-width: 500px;
   height: auto;
-  top: 200px;
+  top: 15%;
   left: 25%;
   margin: auto;
   border-radius: 3px;
@@ -121,10 +126,10 @@ li {
 .modal-close-btn:active {
   color: red;
   cursor: pointer;
+  background: transparent;
 }
 
 .mark-complete {
-  /* position: absolute; */
   padding: 0;
 }
 
@@ -134,7 +139,8 @@ li {
 }
 
 .completed {
-  background-color: greenyellow;
+  background-color: rgba(246, 241, 241, 0.958);
+  text-decoration: line-through;
 }
 
 button {
@@ -150,4 +156,16 @@ button {
 
 button:hover {
   background-color: #00b4d7;
+}
+
+.delete-btn,
+.edit-btn {
+  background: transparent;
+  color: #0077b6;
+  padding: 0;
+}
+
+.delete-btn:hover,
+.edit-btn:hover {
+  background: transparent;
 }
