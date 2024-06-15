@@ -15,6 +15,7 @@ const updateBtn = document.querySelector("#update-btn");
 
 const sortAscBtn = document.querySelector("#sort-asc-btn");
 const sortDescBtn = document.querySelector("#sort-desc-btn");
+const errorMsgEl = document.querySelector(".error-msg");
 
 let currentItem = null;
 
@@ -23,8 +24,16 @@ addBtnEl.addEventListener("click", function () {
   titleValue = inputTitle.value;
   description = inputDescription.value;
   dueDate = inputDueDate.value;
+
+  // disallow empty values for title and date
   if (titleValue === "" || dueDate === "") {
     alert("Please fill out all fields.");
+    return;
+  }
+
+  // Check for past due date
+  if (new Date(dueDate) < new Date()) {
+    alert("Date cannot be in the past.");
     return;
   }
 
@@ -55,13 +64,15 @@ addBtnEl.addEventListener("click", function () {
   buttonContainer.classList.add("btn-container");
 
   const deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete";
+  deleteButton.classList.add("delete-btn");
+  deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
   deleteButton.addEventListener("click", function () {
     TodoList.removeChild(todoItem);
   });
 
   const editButton = document.createElement("button");
-  editButton.textContent = "Edit";
+  editButton.classList.add("edit-btn");
+  editButton.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
   editButton.addEventListener("click", function () {
     editModal.style.display = "block";
 
@@ -73,6 +84,7 @@ addBtnEl.addEventListener("click", function () {
     editDueDate.value = new Date(dueDateString).toISOString().slice(0, 16);
   });
 
+  buttonContainer.appendChild(markComplete);
   buttonContainer.appendChild(deleteButton);
   buttonContainer.appendChild(editButton);
 
@@ -82,7 +94,6 @@ addBtnEl.addEventListener("click", function () {
   const todoItem = document.createElement("li");
   todoItem.classList.add("item");
 
-  todoItem.appendChild(markComplete);
   todoItem.appendChild(textContainer);
   todoItem.appendChild(dateElement);
   todoItem.appendChild(buttonContainer);
@@ -114,13 +125,13 @@ updateBtn.addEventListener("click", function () {
   const dueDateValue = editDueDate.value.trim();
 
   if (!titleValue || !dueDateValue) {
-    alert("Please enter title and due date.");
+    displayErrorMsg("Please enter title and due date.");
     return;
   }
 
   const titleElement = currentItem.querySelector("h3");
-  const descriptionElement = currentItem.querySelector("p:nth-child(2)");
-  const dateElement = currentItem.querySelector("p:nth-child(3)");
+  const descriptionElement = currentItem.querySelector(".text-container > p");
+  // const dateElement = currentItem.querySelector("li p:last-of-type");
 
   titleElement.textContent = titleValue;
   descriptionElement.textContent = descriptionValue;
@@ -151,4 +162,16 @@ function sortList(ascending = true) {
   });
 
   itemsArray.forEach((item) => TodoList.appendChild(item));
+}
+
+//display error message
+function displayErrorMsg(message) {
+  errorMsgEl.textContent = message;
+  errorMsgEl.classList.remove("hidden");
+}
+
+// clear error message
+function clearErrorMsg(message) {
+  errorMsgEl.textContent = "";
+  errorMsgEl.classList.add("hidden");
 }
