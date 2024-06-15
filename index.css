@@ -15,6 +15,7 @@ input {
   margin: 0;
   padding: 0;
 }
+
 .container {
   max-width: 700px;
   height: auto;
@@ -60,6 +61,7 @@ textarea {
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 ul {
   list-style: none;
   padding: 0;
@@ -80,7 +82,7 @@ li {
   width: 90%;
 }
 
-.button-container {
+.btn-container {
   display: flex;
   flex-direction: row;
   padding: 10px 0;
@@ -100,7 +102,7 @@ li {
   width: 50%;
   max-width: 500px;
   height: auto;
-  top: 15%;
+  top: 20%;
   left: 25%;
   margin: auto;
   border-radius: 3px;
@@ -169,3 +171,15 @@ button:hover {
 .edit-btn:hover {
   background: transparent;
 }
+
+.sort-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+}
+
+.error-messages {
+  color: red;
+  margin: 1em 0;
+}
+
