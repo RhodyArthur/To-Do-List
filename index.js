@@ -145,6 +145,7 @@ updateBtn.addEventListener("click", function () {
   dateElement.textContent = `Due: ${new Date(dueDateValue).toLocaleString()}`;
 
   editModal.style.display = "none";
+  clearErrorMsg()
   currentItem = null;
 });
 
