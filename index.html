@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do</title>
+    <!-- css code -->
     <link rel="stylesheet" href="index.css">
+
+    <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -20,12 +28,12 @@
         <textarea name="description" id="description" placeholder="Describe activity...(optional)"></textarea>
         <input type="datetime-local" id="due-date" required>
 
-        <button id="add-btn">Add to List</button>
+        <button id="add-btn">Add to Task</button>
 
 
         <div class="sort-btn">
-            <button id="sort-asc-btn">Sort(Asc)</button>
-            <button id="sort-desc-btn">Sort(Dsc)</button>
+            <button id="sort-asc-btn">Sort <i class="fa-solid fa-arrow-up"></i></button>
+            <button id="sort-desc-btn">Sort <i class="fa-solid fa-arrow-down"></i></button>
         </div>
     </div>
     <ul id="todo-list">
@@ -38,13 +46,16 @@
             <button class="modal-close-btn" id="modal-close-btn">&times;</button>
         </div>
         <h1>Edit Content</h1>
-        <input type="text" name="title" id="edit-title" placeholder="Enter title of today's activity" required>
+        <div>
+            <input type="text" name="title" id="edit-title" placeholder="Enter title of today's activity" required>
 
-        <textarea name="description" id="edit-description" placeholder="Describe activity..."></textarea>
-        <input type="datetime-local" id="edit-due-date" required>
-
-        <button id="update-btn">Update</button>
+            <textarea name="description" id="edit-description" placeholder="Describe activity..."></textarea>
+            <input type="datetime-local" id="edit-due-date" required>
+        </div>
+        <button id="update-btn">Update Content</button>
     </div>
+    <!-- error messages -->
+    <div class="error-messages hidden"></div>
     <script src="index.js"></script>
 </body>
 
