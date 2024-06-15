@@ -1,4 +1,4 @@
-const container = document.querySelector("div");
+const container = document.querySelector(".container");
 const inputTitle = document.querySelector("#input-title");
 const inputDescription = document.querySelector("#description");
 const inputDueDate = document.querySelector("#due-date");
@@ -15,25 +15,25 @@ const updateBtn = document.querySelector("#update-btn");
 
 const sortAscBtn = document.querySelector("#sort-asc-btn");
 const sortDescBtn = document.querySelector("#sort-desc-btn");
-const errorMsgEl = document.querySelector(".error-msg");
+const errorMsgEl = document.querySelector(".error-messages");
 
 let currentItem = null;
 
 addBtnEl.addEventListener("click", function () {
   // accepting input values
-  titleValue = inputTitle.value;
-  description = inputDescription.value;
-  dueDate = inputDueDate.value;
+  const titleValue = inputTitle.value;
+  const description = inputDescription.value;
+  const dueDate = inputDueDate.value;
 
   // disallow empty values for title and date
   if (titleValue === "" || dueDate === "") {
-    alert("Please fill out all fields.");
+    displayErrorMsg("Please fill out all fields.");
     return;
   }
 
-  // Check for past due date
-  if (new Date(dueDate) < new Date()) {
-    alert("Date cannot be in the past.");
+   // Check for past due date
+   if (new Date(dueDate) < new Date()) {
+    displayErrorMsg("Date cannot be in the past.");
     return;
   }
 
@@ -55,6 +55,7 @@ addBtnEl.addEventListener("click", function () {
   markComplete.addEventListener("change", function () {
     if (markComplete.checked) {
       todoItem.classList.add("completed");
+      TodoList.appendChild(todoItem)
     } else {
       todoItem.classList.remove("completed");
     }
@@ -100,6 +101,7 @@ addBtnEl.addEventListener("click", function () {
   TodoList.appendChild(todoItem);
 
   clearInputFields();
+  clearErrorMsg()
 
   sortList();
 });
@@ -129,9 +131,14 @@ updateBtn.addEventListener("click", function () {
     return;
   }
 
+  // Check for past due date
+  if (new Date(dueDateValue) < new Date()) {
+    displayErrorMsg("Date cannot be in the past.");
+    return;
+  }
+
   const titleElement = currentItem.querySelector("h3");
   const descriptionElement = currentItem.querySelector(".text-container > p");
-  // const dateElement = currentItem.querySelector("li p:last-of-type");
 
   titleElement.textContent = titleValue;
   descriptionElement.textContent = descriptionValue;
@@ -164,6 +171,7 @@ function sortList(ascending = true) {
   itemsArray.forEach((item) => TodoList.appendChild(item));
 }
 
+
 //display error message
 function displayErrorMsg(message) {
   errorMsgEl.textContent = message;
@@ -171,7 +179,7 @@ function displayErrorMsg(message) {
 }
 
 // clear error message
-function clearErrorMsg(message) {
+function clearErrorMsg() {
   errorMsgEl.textContent = "";
   errorMsgEl.classList.add("hidden");
 }
